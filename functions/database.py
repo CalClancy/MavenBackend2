@@ -22,24 +22,27 @@ def get_recent_messages():
   else:
     learn_instruction["content"] = learn_instruction["content"] + "Your response will recommend another word to learn. "
 
+
+  N = 10  # Set N to the desired number of last messages to retrieve
+  
   # Append instruction to message
   messages.append(learn_instruction)
-
+  
   # Get last messages
   try:
-    with open(file_name) as user_file:
-      data = json.load(user_file)
-      
-      # Append last 5 rows of data
-      if data:
-        if len(data) < 5:
-          for item in data:
-            messages.append(item)
-        else:
-          for item in data[-5:]:
-            messages.append(item)
+      with open(file_name) as user_file:
+          data = json.load(user_file)
+          
+          # Append last N rows of data
+          if data:
+              if len(data) < N:
+                  for item in data:
+                      messages.append(item)
+              else:
+                  for item in data[-N:]:
+                      messages.append(item)
   except:
-    pass
+      pass
 
   
   # Return messages
