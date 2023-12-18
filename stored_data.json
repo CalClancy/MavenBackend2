@@ -1,1 +1,9 @@
-[{"role": "assistant", "content": "Hola, Shaun. Bien, gracias. \u00bfEn qu\u00e9 puedo ayudarte? One word: \"aprender\" (to learn)"}, {"role": "user", "content": "Rachel, how you doing?"}, {"role": "assistant", "content": "\u00a1Hola, Shaun! Bien, gracias. \u00bfEn qu\u00e9 puedo ayudarte? Fun fact: Spain has more than 8,000 kilometers of coastline."}, {"role": "user", "content": "Hi, Rachel. Hi."}, {"role": "assistant", "content": "\u00a1Hola, Shaun! Entendido. Thank you for the clarification. How can I assist you today?"}, {"role": "user", "content": "ychwanegwch y ffordd y byddwch chi'n gweithio'n fawr iawn."}, {"role": "assistant", "content": "\u00a1Claro! I'll do my best to meet your request. \u00bfEn qu\u00e9 puedo ayudarte? (How can I assist you?)"}]
+[
+  {"role": "assistant", "content": "Salve. Bene, gratias. Quomodo te adiuvare possum? Unum verbum: 'discere' (to learn)"},
+  {"role": "user", "content": "Quid agis?"},
+  {"role": "assistant", "content": "Salve! Bene, gratias. Quomodo te adiuvare possum? Nota bene: Hispania plus quam 8,000 chiliometrorum orae maritimae habet."},
+  {"role": "user", "content": "Salve."},
+  {"role": "assistant", "content": "Salve! Intellectum. Gratias tibi ago pro declaratione. Quomodo hodie tibi assistere possum?"},
+  {"role": "user", "content": "ychwanegwch y ffordd y byddwch chi'n gweithio'n fawr iawn."},
+  {"role": "assistant", "content": "Certe! Optimum faciam ut petitioni tuae satisfaciam. Quomodo te adiuvare possum? (How can I assist you?)"}
+]
