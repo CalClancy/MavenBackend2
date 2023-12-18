@@ -6,7 +6,7 @@ from .prompts import generate_user_message_prompt
 
 load_dotenv()
 
-openai.organization = os.environ.get("OPEN_AI_ORG")
+# openai.organization = os.environ.get("OPEN_AI_ORG")
 openai.api_key = os.environ.get("OPEN_AI_KEY")
 
 def convert_audio_to_text(audio_file):
@@ -24,8 +24,8 @@ def get_chat_response(decoded_message):
 
     try:
         response = openai.ChatCompletion.create(
-            # model="gpt-3.5-turbo-16k",
-            model="gpt-4-32k",
+            model="gpt-3.5-turbo-16k",
+            # model="gpt-4-32k",
             messages=messages
         )
         message_text = response["choices"][0]["message"]["content"]
