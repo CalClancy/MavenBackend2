@@ -31,3 +31,4 @@ def get_chat_response(decoded_message):
         return message_text if isinstance(message_text, str) else {"error": "Unexpected response type"}
     except Exception as e:
         return
+        
