@@ -33,8 +33,9 @@ def get_chat_response(decoded_message):
 
     try:
         response = openai.ChatCompletion.create(
-            model="gpt-4-32k", #changed to latest model available in Dec, 2023
-            messages=messages
+          #  model="gpt-4-32k", changed to latest model available in Dec, 2023
+          model="gpt-3.5-turbo-16k",
+          messages=messages
         )
         message_text = response["choices"][0]["message"]["content"]
 
