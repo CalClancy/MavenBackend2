@@ -25,7 +25,8 @@ def get_chat_response(decoded_message):
 
     try:
         response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo-16k",
+            model="gpt-3.5-turbo",
+            # model="gpt-3.5-turbo-16k",
             # model="gpt-4-32k",
             messages=messages
         )
