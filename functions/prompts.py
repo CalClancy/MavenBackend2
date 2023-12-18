@@ -12,7 +12,6 @@ def generate_learn_instruction():
 def generate_user_message_prompt(decoded_message):
     user_message = {
         "role": "user", 
-        # "content": decoded_message + " Only say the first sentence in Latin if speaking in Latin. The remaining words should be in English"
         "content": decoded_message
     }
     return user_message
