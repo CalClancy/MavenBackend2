@@ -1,81 +1,33 @@
 import os
 import json
-import random
+from prompts import generate_learn_instruction
 
-# Save messages for retrieval later on
 def get_recent_messages():
+    file_name = "stored_data.json"
+    messages = [generate_learn_instruction()]
+    N = 10
 
-  # Define the file name
-  file_name = "stored_data.json"
-  learn_instruction = {"role": "system", 
-                       "content": "You are a Spanish teacher and your name is Rachel, the user is called Shaun. Keep responses under 20 words. "}
-  
-  # Initialize messages
-  messages = []
+    try:
+        with open(file_name) as user_file:
+            data = json.load(user_file)
+            messages.extend(data[-N:] if len(data) >= N else data)
+    except:
+        pass
 
-  # Add Random Element
-  x = random.uniform(0, 1)
-  if x < 0.2:
-    learn_instruction["content"] = learn_instruction["content"] + "Your response will have some light humour. "
-  elif x < 0.5:
-    learn_instruction["content"] = learn_instruction["content"] + "Your response will include an interesting new fact about Spain. "
-  else:
-    learn_instruction["content"] = learn_instruction["content"] + "Your response will recommend another word to learn. "
+    return messages
 
-
-  N = 10  # Set N to the desired number of last messages to retrieve
-  
-  # Append instruction to message
-  messages.append(learn_instruction)
-  
-  # Get last messages
-  try:
-      with open(file_name) as user_file:
-          data = json.load(user_file)
-          
-          # Append last N rows of data
-          if data:
-              if len(data) < N:
-                  for item in data:
-                      messages.append(item)
-              else:
-                  for item in data[-N:]:
-                      messages.append(item)
-  except:
-      pass
-
-  
-  # Return messages
-  return messages
-
-
-# Save messages for retrieval later on
 def store_messages(message_decoded, chat_response):
+    file_name = "stored_data.json"
+    messages = get_recent_messages()[1:]
+    user_message = {"role": "user", "content": message_decoded}
+    assistant_message = {"role": "assistant", "content": chat_response}
+    messages.extend([user_message, assistant_message])
 
-  # Define the file name
-  file_name = "stored_data.json"
+    with open(file_name, "w") as f:
+        json.dump(messages, f)
+    return
 
-  # Get recent messages
-  messages = get_recent_messages()[1:]
-
-  # Add messages to data
-  user_message = {"role": "user", "content": message_decoded}
-  assistant_message = {"role": "assistant", "content": chat_response}
-  messages.append(user_message)
-  messages.append(assistant_message)
-
-  # Save the updated file
-  with open(file_name, "w") as f:
-    json.dump(messages, f)
-  return
-
-
-# Save messages for retrieval later on
 def reset_messages():
-
-  # Define the file name
-  file_name = "stored_data.json"
-
-  # Write an empty file
-  open(file_name, "w")
-  return
+    file_name = "stored_data.json"
+    open(file_name, "w").close()
+    return
