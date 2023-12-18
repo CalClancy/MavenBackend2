@@ -1,6 +1,6 @@
 import os
 import json
-from prompts import generate_learn_instruction
+from .prompts import generate_learn_instruction
 
 def get_recent_messages():
     file_name = "stored_data.json"

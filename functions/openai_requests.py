@@ -2,7 +2,7 @@ import os
 import openai
 from dotenv import load_dotenv
 from functions.database import get_recent_messages
-from prompts import generate_user_message_prompt
+from .prompts import generate_user_message_prompt
 
 load_dotenv()
 
