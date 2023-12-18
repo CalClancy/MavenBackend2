@@ -28,8 +28,8 @@ def get_chat_response(decoded_message):
             # model="gpt-3.5-turbo",
             # model="gpt-3.5-turbo-16k",
             # model="gpt-4-32k",
-            # model="gpt-4",
-            model="gpt-4-1106-preview",
+             model="gpt-4",
+            # model="gpt-4-1106-preview",
             messages=messages
         )
         message_text = response["choices"][0]["message"]["content"]
